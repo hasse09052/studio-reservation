@@ -63,4 +63,8 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "データベース上のトークンが無い時、authenticated?メソッドが false を返すか" do
+    assert_not @user.authenticated?('')
+  end
+
 end

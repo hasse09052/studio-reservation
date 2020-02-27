@@ -16,6 +16,10 @@
       <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
     <% end %>
 
+    <% if logged_in? %>
+      <%= link_to "ログアウト", logout_path, method: :delete %>
+    <% end %>
+
     <%# メイン %>
     <%= yield %>
 

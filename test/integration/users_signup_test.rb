@@ -13,7 +13,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_template 'users/new'
   end
 
-  test "有効なユーザ情報で登録を行うか" do
+  test "有効なユーザ情報で登録を行い、ログインするか" do
     get new_user_path
     assert_difference 'User.count', 1 do
       post users_path, params: { user: { name:  "Example User",
@@ -23,5 +23,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     follow_redirect!
     assert_template 'users/index'
+    assert is_logged_in?
   end
 end
