@@ -9,6 +9,10 @@ gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # パスワードの暗号化用
 gem 'bcrypt'
 
+# エラーメッセージの日本語化用
+gem 'rails-i18n'
+
+
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
