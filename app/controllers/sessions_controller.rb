@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       cookies.permanent.signed[:user_id] = @user.id
       cookies.permanent[:remember_token] = @user.remember_token
       
-      redirect_to @user
+      redirect_back_or @user
     else
       flash.now[:danger] = 'メールアドレスかパスワードが間違っています'
       render 'new'
