@@ -23,6 +23,15 @@ module SessionsHelper
     return !current_user.nil?
   end
 
+  # 渡されたユーザーがログイン済みユーザーであればtrue、違うならfalseを返す
+  def current_user?(user)
+    if user == current_user
+      return true
+    else
+      return false
+    end
+  end
+
   # クッキーとデータベースのユーザ情報を削除
   def forget(user)
     # データベース上のトークン削除
