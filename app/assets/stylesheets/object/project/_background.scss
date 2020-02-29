@@ -1,6 +1,6 @@
 .p-background {
   min-height: calc(100vh - #{$headerHeight});
-  padding: 50px 0 0;
+  padding: 50px 0;
 
   &.-music {
     background: url("/assets/bg_music.jpg") bottom center;
