@@ -2,14 +2,18 @@
 // Foundation
 // ==========================================================================
 
+// リセットcss
 @import "foundation/sanitize.css";
+// 個人でリセットしたい部分
 @import "foundation/_myReset";
+// 全体で使う変数
+@import "foundation/_variable";
 
 // ==========================================================================
 // Layout
 // ==========================================================================
 
-@import "layout/_header";
+@import "layout/_layout";
 
 // ==========================================================================
 // Object
@@ -25,7 +29,9 @@
 // Project
 // -----------------------------------------------------------------
 
-@import "object/project/_sample";
+@import "object/project/_header";
+@import "object/project/_form";
+@import "object/project/_background";
 
 // -----------------------------------------------------------------
 // Utility

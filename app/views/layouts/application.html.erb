@@ -1,6 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="スタジオの時間管理アプリです">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="noindex,nofollow">
     <title>StudioReservation</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,16 +16,26 @@
   </head>
 
   <body>
-    <header>
-      <figure><a href="/"><img src="https://placehold.jp/50x50.png" alt="ロゴ画像(トップリンク)"></a></figure>
-      <nav>
-        <ul>
+    <header class="l-header p-header">
+      <figure class="p-header__left">
+        <a href="/" class="c-link"><img src="https://placehold.jp/50x50.png" alt="ロゴ画像(トップリンク)"></a>
+      </figure>
+      <nav class="p-header__right">
+        <ul class="p-header__lists">
           <% if logged_in? %>
-            <li><%= link_to("編集", edit_user_path( id: current_user.id )) %></li>
-            <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+            <li class="p-header__item <%= '-selected' if current_page?(edit_user_path(id: current_user.id)) %>">
+              <%= link_to "編集", edit_user_path(id: current_user.id), class: "c-link p-header__link" %>
+            </li>
+            <li class="p-header__item">
+              <%= link_to "ログアウト", logout_path, method: :delete, class: "c-link p-header__link" %>
+            </li>
           <% else %>
-            <li><%= link_to("新規登録", new_user_path) %></li>
-            <li><%= link_to("ログイン", login_path) %></li>
+            <li class="p-header__item <%= '-selected' if current_page?(root_path) %>">
+              <%= link_to "TOP", root_path, class: "c-link p-header__link" %>
+            </li>
+            <li class="p-header__item <%= '-selected' if current_page?(new_user_path) %>">
+              <%= link_to "新規登録", new_user_path, class: "c-link p-header__link" %>
+            </li>
           <% end %>
         </ul>
       </nav>
@@ -31,7 +47,9 @@
     <% end %>
 
     <%# メイン %>
-    <%= yield %>
+    <main class="l-main">
+      <%= yield %>
+    </main>
 
     <%# デバッグ %>
     <%= debug(params) if Rails.env.development? %>

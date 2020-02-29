@@ -1,0 +1,23 @@
+.p-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  background: $myBlack;
+
+  &__lists {
+    display: flex;
+  }
+
+  &__item {
+    margin: 0 10px;
+
+    &.-selected {
+      border-bottom: 2px solid white;
+    }
+  }
+
+  &__link {
+    color: white;
+  }
+}

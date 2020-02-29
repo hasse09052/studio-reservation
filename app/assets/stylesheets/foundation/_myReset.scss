@@ -1,0 +1,27 @@
+html,
+body {
+  font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+}
+
+html {
+  /* ルートのフォントサイズを10pxに設定 */
+  font-size: 62.5%;
+}
+
+body {
+	/* ルートのフォントサイズを1.6emに設定 */
+	font-size: 1.6em;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}

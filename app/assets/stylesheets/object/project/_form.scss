@@ -1,0 +1,32 @@
+.p-userForm {
+  &.-bg {
+    background: rgba($color: white, $alpha: 0.8);
+  }
+
+  &__title {
+    font-size: 2.4rem;
+    font-weight: bolder;
+    text-align: center;
+  }
+
+  &__inputWrap {
+    margin: 0 0 20px;
+  }
+
+  &__label {
+    font-size: 1.8rem;
+    font-weight: bolder;
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    height: 35px;
+    padding: 5px;
+    font-size: 1.8rem;
+  }
+  
+  &__btn {
+    margin: 10px 0;
+  }
+}

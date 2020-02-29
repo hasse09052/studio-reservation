@@ -1,17 +1,29 @@
-<%= form_with model: @user, local: true do |form| %>
+<div class="l-userForm c-formBox p-userForm">
+  <h1 class="p-userForm__title">新規登録</h1>
+
   <%= render "shared/error_messages" %>
-  
-  <%= form.label :email, "メールアドレス(ログインIDになります)" %>
-  <%= form.text_field :email %>
 
-  <%= form.label :name, "氏名" %>
-  <%= form.text_field :name %>
+  <%= form_with model: @user, class: "p-userForm__formWrap", local: true do |form| %>
+    <div class="p-userForm__inputWrap">
+      <%= form.label :email, "メールアドレス(ログインIDになります):", class: "p-userForm__label" %>
+      <%= form.text_field :email, class: "p-userForm__input" %>
+    </div>
 
-  <%= form.label :password, "パスワード(6文字以上)" %>
-  <%= form.password_field :password %>
+    <div class="p-userForm__inputWrap">
+      <%= form.label :name, "氏名:", class: "p-userForm__label" %>
+      <%= form.text_field :name, class: "p-userForm__input" %>
+    </div>
 
-  <%= form.label :password_confirmation, "パスワード再入力" %>
-  <%= form.password_field :password_confirmation %>
-    
-  <%= form.submit %>
-<% end %>
+    <div class="p-userForm__inputWrap">
+      <%= form.label :password, "パスワード:", class: "p-userForm__label" %>
+      <%= form.password_field :password, class: "p-userForm__input" %>
+    </div>
+
+    <div class="p-userForm__inputWrap">
+      <%= form.label :password_confirmation, "パスワード再入力:", class: "p-userForm__label" %>
+      <%= form.password_field :password_confirmation, class: "p-userForm__input" %>
+    </div>
+      
+    <%= form.submit "登録する", class: "c-button -blue p-userForm__btn" %>
+  <% end %>
+</div>
