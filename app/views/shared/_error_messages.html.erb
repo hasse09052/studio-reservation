@@ -1,7 +1,7 @@
 <% if @user.errors.any? %>
-  <ul>
+  <ul class="c-errorBox">
     <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+      <li class="c-errorBox__test"><%= message %></li>
     <% end %>
   </ul>
 <% end %>

@@ -28,5 +28,13 @@
   
   &__btn {
     margin: 10px 0;
+    border: none;
+    box-shadow: 3px 3px #627295;
+    transition: 0.3s ease-out;
+
+    &:active {
+      box-shadow: none;
+      transform: translate(3px, 3px);
+    }
   }
 }

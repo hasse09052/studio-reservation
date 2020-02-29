@@ -43,7 +43,7 @@
 
     <%# フラッシュメッセージ用 %>
     <% flash.each do |message_type, message| %>
-      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+      <%= content_tag(:p, message, class: "c-alertBox -#{message_type}") %>
     <% end %>
 
     <%# メイン %>

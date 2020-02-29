@@ -30,3 +30,24 @@
   border-radius: 10px;
   background: rgba($color: white, $alpha: 0.8);
 }
+
+// アラート
+.c-alertBox {
+  margin: 0;
+  padding: 20px 0;
+  text-align: center;
+
+  &.-danger {
+    border: 1px solid #f5c6cb;
+    background: #f8d7da;
+    color: #721c24;
+  }
+}
+
+// エラー
+.c-errorBox {
+  padding: 15px 2em;
+  border: 1px solid #f5c6cb;
+  background: #f8d7da;
+  color: #721c24;
+}
