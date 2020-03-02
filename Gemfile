@@ -12,6 +12,10 @@ gem 'bcrypt'
 # エラーメッセージの日本語化用
 gem 'rails-i18n'
 
+# 日付操作用
+gem "activesupport"
+
+
 # Use Puma as the app server
 gem 'puma', '~> 4.3.2'
 # Use SCSS for stylesheets

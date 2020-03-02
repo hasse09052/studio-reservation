@@ -1,0 +1,63 @@
+<h1>予約一覧</h1>
+<p><%= @startDate.strftime("%Y年%m月%d日#{%w(日 月 火 水 木 金 土)[@startDate.wday]}曜日 %H時%M分") %></p>
+<p><%= ((Time.current.end_of_year.beginning_of_day  - Time.current.beginning_of_day ) / 60 / 60 / 24) + 1 %></p>
+<table border="1">
+    <caption>予約表</caption>
+    <thead>
+      <tr>
+        <th></th>
+        <%
+          # 変数定義
+          date = @startDate
+          diffEndOfMonth = date.end_of_month.day - date.day + 1
+          diffEndOfYear = ((Time.current.end_of_year.beginning_of_day  - Time.current.beginning_of_day ) / 60 / 60 / 24) + 1
+        %>
+        <% if diffEndOfYear >= 7 %>
+          <th colspan="7"><%= date.strftime("%Y年") %></th>
+        <% else  %>
+          <th colspan="<%= diffEndOfYear %>"><%= date.strftime("%Y年") %></th>
+          <th colspan="<%= 7 - diffEndOfYear %>"><%= date.strftime("%Y年") %></th>
+        <% end %>
+      </tr>
+      <tr>
+        <th></th>
+        <% 
+          date = @startDate
+          diffEndOfMonth = date.end_of_month.day - date.day + 1
+        %>
+        <% if diffEndOfMonth >= 7%>
+          <th colspan="7"><%= date.strftime("%Y年%m月") %></th>
+        <% else %>
+          <th colspan="<%= diffEndOfMonth %>"><%= date.strftime("%m月") %></th>
+          <th colspan="<%= 7 - diffEndOfMonth %>"><%= date.weeks_since(1).strftime("%m月") %></th>
+        <% end %>
+      </tr>
+      <tr>
+        <th>日時</th>
+        <% for cnt in 0..6 do %>
+          <% headerDay = @startDate.since(cnt.days) %>
+          <th><%= headerDay.strftime("%e(#{%w(日 月 火 水 木 金 土)[headerDay.wday]})") %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <%
+        date = @startDate
+        for roopCnt in 1..8 do
+      %>
+        <tr>
+          <th><%= date.strftime("%H:%M") %><br>|<br><%= date.since(90.minutes).strftime("%H:%M") %></th>
+          <% for _ in 1..7 do %>
+            <% if @reservations.find_by(start_date: date) %>
+              <td>×</td>
+            <% else %>
+              <td><%= link_to "◎", "/reservations/new/#{date.year}/#{date.month}/#{date.day}/#{date.hour}" %></td>
+            <% end %>
+          <% date = date.tomorrow  %>
+          <% end %>
+        </tr>
+      <% date = date.weeks_ago(1)  %>
+      <% date = date.since(90.minutes)  %>
+      <% end  %>
+    </tbody>
+  </table>

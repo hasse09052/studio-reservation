@@ -193,6 +193,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   bcrypt
   bootsnap (>= 1.4.2)
   byebug
