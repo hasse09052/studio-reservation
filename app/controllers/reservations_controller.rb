@@ -2,8 +2,7 @@ class ReservationsController < ApplicationController
 
   def index
     startDate = Time.current
-    #@startDate = Time.zone.local(startDate.year, startDate.month, startDate.day, 9, 00, 00)
-    @startDate = Time.zone.local(2020, 2, 28, 9, 00, 00)
+    @startDate = Time.zone.local(startDate.year, startDate.month, startDate.day, 9, 00, 00)
     @reservations = Reservation.all
   end
 
