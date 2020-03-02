@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+  before_action :correct_user, only: :destroy
 
   def index
     startDate = Time.current
@@ -7,8 +8,8 @@ class ReservationsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @reservations = @user.reservations.all
+    @reservation = Reservation.find(params[:id])
+    @user = @reservation.user
   end
 
   def new
@@ -30,5 +31,27 @@ class ReservationsController < ApplicationController
       render "reservations/new"
     end
   end
+
+  def edit
+    
+  end
+
+  def destroy
+    @reservation.destroy
+    flash[:success] = "予約を削除しました"
+    redirect_to reservations_url
+  end
+
+  private
+
+    # ログインユーザの予約かどうか確認
+    def correct_user
+      @reservation = current_user.reservations.find_by(id: params[:id])
+      if @reservation.nil?
+        flash[:denger] = "あなたの予約ではありません"
+        redirect_to reservations_url
+      end
+    end
+
 
 end

@@ -18,12 +18,16 @@
   <body>
     <header class="l-header p-header">
       <figure class="p-header__left">
-        <a href="/" class="c-link"><img src="https://placehold.jp/50x50.png" alt="ロゴ画像(トップリンク)"></a>
+        <% if logged_in? %>
+          <a href="<%= reservations_path %>" class="c-link"><img src="https://placehold.jp/50x50.png" alt="ロゴ画像(トップリンク)"></a>
+        <% else %>
+          <a href="/" class="c-link"><img src="https://placehold.jp/50x50.png" alt="ロゴ画像(トップリンク)"></a>
+        <% end %>
       </figure>
       <nav class="p-header__right">
         <ul class="p-header__lists">
           <% if logged_in? %>
-          <li class="p-header__item <%= '-selected' if current_page?(edit_user_path(id: current_user.id)) %>">
+            <li class="p-header__item <%= '-selected' if current_page?(reservations_path) %>">
               <%= link_to "予約", reservations_path, class: "c-link p-header__link" %>
             </li>
             <li class="p-header__item <%= '-selected' if current_page?(edit_user_path(id: current_user.id)) %>">

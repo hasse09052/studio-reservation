@@ -1,7 +1,9 @@
-<h1>今後の予定</h1>
+<h1>予約確認</h1>
 
-<ul>
-  <% @reservations.each do |reservation| %>
-    <li><%= reservation.start_date %> <br> バンド名:<%= reservation.name %></li>
-  <% end %>
-</ul>
+<% startDate = @reservation.start_date %>
+
+<p>予約時間:<%= startDate.strftime("%Y年%m月%d日#{%w(日 月 火 水 木 金 土)[startDate.wday]}曜日 %H時%M分") %></p>
+<p>予約名: <%= @reservation.name %></p>
+<p>予約者: <%= @user.name %></p>
+
+<%= link_to "予約削除", @reservation, method: :delete, data: { confirm: "You sure?" } %>

@@ -40,8 +40,12 @@
         <tr>
           <th><%= date.strftime("%H:%M") %><br>|<br><%= date.since(90.minutes).strftime("%H:%M") %></th>
           <% for _ in 1..7 do %>
-            <% if @reservations.find_by(start_date: date) %>
-              <td>×</td>
+            <% if reservation = @reservations.find_by(start_date: date) %>
+              <% if reservation.user_id == current_user.id %>
+                <td><%= link_to "★", reservation_path(reservation) %></td>
+              <% else %>
+                <td><%= link_to "×", reservation_path(reservation) %></td>
+              <% end %>
             <% else %>
               <td><%= link_to "◎", "/reservations/new/#{date.year}/#{date.month}/#{date.day}/#{date.hour}/#{date.min}" %></td>
             <% end %>
