@@ -13,8 +13,22 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = Reservation.new
-    @time = Time.zone.local(params[:year], params[:month],
-                            params[:day], params[:time], 00, 00)
+    @reservation_time = Time.zone.local(params[:year], params[:month],
+                                        params[:day], params[:hour], params[:minute], 00)
+  end
+
+  def create
+    @user = current_user
+    @reservation_time = Time.zone.local(params[:year], params[:month],
+                                        params[:day], params[:hour], params[:minute], 00)
+    @reservation =  @user.reservations.new(name: params[:name], start_date: @reservation_time)
+
+    if @reservation.save
+      flash[:success] = "予約に成功しました！"
+      redirect_to reservations_url
+    else
+      render "reservations/new"
+    end
   end
 
 end

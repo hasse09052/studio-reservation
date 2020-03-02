@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "ユーザー登録に成功しました！"
-      redirect_to users_path
+      redirect_to users_url
     else
       render "users/new"
     end
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
+    if @user.update(user_params)
       flash[:success] = "ユーザー情報の更新に成功しました"
       redirect_to @user
     else

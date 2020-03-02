@@ -2,9 +2,13 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      reservation: 予約
     attributes:
       user:
         name: 氏名
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード(再入力)
+      reservation:
+        name: 予約名
+        start_date: 予約時刻

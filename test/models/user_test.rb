@@ -67,4 +67,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?('')
   end
 
+  test "ユーザーが削除された時に予約も消えるか" do
+    @user.save
+    @user.reservations.create!(name: "xxxBand", start_date: Time.current)
+    assert_difference 'Reservation.count', -1 do
+      @user.destroy
+    end
+  end
+
 end

@@ -43,7 +43,7 @@
             <% if @reservations.find_by(start_date: date) %>
               <td>×</td>
             <% else %>
-              <td><%= link_to "◎", "/reservations/new/#{date.year}/#{date.month}/#{date.day}/#{date.hour}" %></td>
+              <td><%= link_to "◎", "/reservations/new/#{date.year}/#{date.month}/#{date.day}/#{date.hour}/#{date.min}" %></td>
             <% end %>
           <% date = date.tomorrow  %>
           <% end %>

@@ -23,8 +23,11 @@
       <nav class="p-header__right">
         <ul class="p-header__lists">
           <% if logged_in? %>
+          <li class="p-header__item <%= '-selected' if current_page?(edit_user_path(id: current_user.id)) %>">
+              <%= link_to "予約", reservations_path, class: "c-link p-header__link" %>
+            </li>
             <li class="p-header__item <%= '-selected' if current_page?(edit_user_path(id: current_user.id)) %>">
-              <%= link_to "編集", edit_user_path(id: current_user.id), class: "c-link p-header__link" %>
+              <%= link_to "個人情報", edit_user_path(id: current_user.id), class: "c-link p-header__link" %>
             </li>
             <li class="p-header__item">
               <%= link_to "ログアウト", logout_path, method: :delete, class: "c-link p-header__link" %>

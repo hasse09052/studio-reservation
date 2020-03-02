@@ -1,0 +1,7 @@
+<h1>今後の予定</h1>
+
+<ul>
+  <% @reservations.each do |reservation| %>
+    <li><%= reservation.start_date %> <br> バンド名:<%= reservation.name %></li>
+  <% end %>
+</ul>

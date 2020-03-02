@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
+  has_many :reservations, dependent: :destroy
   has_secure_password
-
   before_save { self.email = self.email.downcase }
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
