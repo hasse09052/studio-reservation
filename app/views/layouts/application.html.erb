@@ -30,6 +30,9 @@
             <li class="p-header__item <%= '-selected' if current_page?(reservations_path) %>">
               <%= link_to "予約", reservations_path, class: "c-link p-header__link" %>
             </li>
+            <li class="p-header__item <%= '-selected' if current_page?(current_user) %>">
+              <%= link_to "マイページ", current_user, class: "c-link p-header__link" %>
+            </li>
             <li class="p-header__item <%= '-selected' if current_page?(edit_user_path(id: current_user.id)) %>">
               <%= link_to "個人情報", edit_user_path(id: current_user.id), class: "c-link p-header__link" %>
             </li>
