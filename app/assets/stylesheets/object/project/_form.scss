@@ -27,8 +27,7 @@
   }
   
   &__btn {
-    margin: 10px 0;
-    border: none;
+    margin: 10px auto;
     box-shadow: 3px 3px #627295;
     transition: 0.3s ease-out;
 
@@ -36,5 +35,38 @@
       box-shadow: none;
       transform: translate(3px, 3px);
     }
+  }
+}
+
+.p-reservationForm {
+  &__table {
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid #e2e3e5;
+  }
+
+  &__header {
+    width: 35%;
+    padding: 10px 20px;
+    border: 1px solid #e2e3e5;
+    background: #f6f6f6;
+    text-align: left;
+  }
+
+  &__data {
+    width: 65%;
+    padding: 10px 20px;
+    border: 1px solid #e2e3e5;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 5px;
+    font-size: 1.7rem;
+  }
+
+  &__btn {
+    width: 65%;
+    margin: 30px auto;
   }
 }

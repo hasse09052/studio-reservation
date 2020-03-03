@@ -1,22 +1,33 @@
 <h1>予約情報更新</h1>
 
-<% if @reservation.errors.any? %>
-  <ul class="c-errorBox">
-    <% @reservation.errors.full_messages.each do |message| %>
-      <li class="c-errorBox__test"><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="c-formBox l-userForm">
+  <% if @reservation.errors.any? %>
+    <ul class="c-errorBox">
+      <% @reservation.errors.full_messages.each do |message| %>
+        <li class="c-errorBox__test"><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
 
-<p><%= @reservation.start_date.strftime("%Y年%m月%d日#{%w(日 月 火 水 木 金 土)[@reservation.start_date.wday]}曜日") %></p>
-<p><%= @reservation.start_date.strftime("%H時%M分") %></p>
-
-<%= form_with model: @reservation, class: "p-userForm__formWrap", local: true do |form| %>
-
-  <div class="p-userForm__inputWrap">
-    <%= form.label :name, "バンド名or氏名:", class: "p-userForm__label" %>
-    <%= form.text_field :name, class: "p-userForm__input" %>
-  </div>
+  <%= form_with model: @reservation, class: "p-reservationForm", local: true do |form| %>
     
-  <%= form.submit "変更する", class: "c-button -blue p-userForm__btn" %>
-<% end %>
+    <table class="p-reservationForm__table">
+      <tbody class="p-reservationForm__tableBody">
+        <tr class="p-reservationForm__row">
+          <th class="p-reservationForm__header">予約日程</th>
+          <td class="p-reservationForm__data"><%= @reservation.start_date.strftime("%Y年 %m月%d日(#{%w(日 月 火 水 木 金 土)[@reservation.start_date.wday]})") %></td>
+        </tr>
+        <tr class="p-reservationForm__row">
+          <th class="p-reservationForm__header">時間</th>
+          <td class="p-reservationForm__data"><%= @reservation.start_date.strftime("%H時%M分") %> 〜 <%= @reservation.start_date.since(90.minutes).strftime("%H時%M分") %></td>
+        </tr>
+        <tr class="p-reservationForm__row">
+          <th class="p-reservationForm__header"><%= form.label :name, "バンド名or氏名", class: "" %></th>
+          <td class="p-reservationForm__data"><%= form.text_field :name, class: "p-reservationForm__input" %></td>
+        </tr>
+      </tbody>
+    </table>
+      
+    <%= form.submit "変更する", class: "c-button -blue p-reservationForm__btn" %>
+  <% end %>
+</div>

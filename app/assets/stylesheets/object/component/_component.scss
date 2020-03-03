@@ -10,8 +10,10 @@
 
 // ボタン
 .c-button {
-  width: 100%;
+  display: block;
+  width: 90%;
   height: 50px;
+  border: none;
   border-radius: 4px;
   font-size: 1.8rem;
   font-weight: bolder;
