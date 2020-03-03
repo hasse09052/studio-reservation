@@ -3,7 +3,9 @@
   padding: 50px 0;
 
   &.-music {
-    background: url("/assets/bg_music.jpg") bottom center;
+    background: linear-gradient(-135deg, rgba($color: #E4A972, $alpha: 0.7), rgba($color: #9941D8, $alpha: 0.7)),
+                url("/assets/bg_music.jpg");
+    background-position: bottom center;
     background-size: cover;
   }
 }

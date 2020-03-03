@@ -1,4 +1,6 @@
 .p-userForm {
+  padding: 30px 40px 20px;
+  
   &.-bg {
     background: rgba($color: white, $alpha: 0.8);
   }
@@ -27,7 +29,7 @@
   }
   
   &__btn {
-    margin: 10px auto;
+    margin: 30px auto;
     box-shadow: 3px 3px #627295;
     transition: 0.3s ease-out;
 
