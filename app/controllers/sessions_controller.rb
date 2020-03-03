@@ -10,8 +10,6 @@ class SessionsController < ApplicationController
       @user.remember
 
       log_in @user 
-      cookies.permanent.signed[:user_id] = @user.id
-      cookies.permanent[:remember_token] = @user.remember_token
       
       redirect_back_or @user
     else
