@@ -16,18 +16,31 @@
   border: none;
   border-radius: 4px;
   font-size: 1.8rem;
+  line-height: 50px;
   font-weight: bolder;
   text-align: center;
 
   &.-blue {
-    background: $btnBlue;
+    border: 1px solid #0062cc;
+    background: #007bff;
+    color: white;
+  }
+
+  &.-red {
+    border: 1px solid #bd2130;
+    background: #c82333;
+    color: white;
+  }
+
+  &.-green {
+    border: 1px solid #1e7e34;
+    background: #218838;
     color: white;
   }
 }
 
 // フォームのボックス
 .c-formBox {
-  padding: 30px 50px;
   border-radius: 10px;
   background: rgba($color: white, $alpha: 0.8);
 }

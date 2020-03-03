@@ -2,9 +2,32 @@
 
 <% startDate = @reservation.start_date %>
 
-<p>予約時間:<%= startDate.strftime("%Y年%m月%d日#{%w(日 月 火 水 木 金 土)[startDate.wday]}曜日 %H時%M分") %></p>
-<p>予約名: <%= @reservation.name %></p>
-<p>予約者: <%= @user.name %></p>
+<div class="c-formBox l-reservationForm">
+  <table class="p-reservationForm__table">
+    <tbody class="p-reservationForm__tableBody">
+      <tr class="p-reservationForm__row">
+        <th class="p-reservationForm__header">予約日程</th>
+        <td class="p-reservationForm__data"><%= @reservation.start_date.strftime("%Y年 %m月%d日(#{%w(日 月 火 水 木 金 土)[@reservation.start_date.wday]})") %></td>
+      </tr>
+      <tr class="p-reservationForm__row">
+        <th class="p-reservationForm__header">時間</th>
+        <td class="p-reservationForm__data"><%= @reservation.start_date.strftime("%H時%M分") %> 〜 <%= @reservation.start_date.since(90.minutes).strftime("%H時%M分") %></td>
+      </tr>
+      <tr class="p-reservationForm__row">
+        <th class="p-reservationForm__header">予約名</th>
+        <td class="p-reservationForm__data"><%= @reservation.name %></td>
+      </tr>
+      <tr class="p-reservationForm__row">
+        <th class="p-reservationForm__header">予約者</th>
+        <td class="p-reservationForm__data"><%= @user.name %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-<%= link_to "編集", edit_reservation_path(@reservation) %>
-<%= link_to "予約削除", @reservation, method: :delete, data: { confirm: "本当に削除しますか?" } %>
+<% if current_user == @user %>
+  <div class="p-btnWrap">
+    <%= link_to "編集", edit_reservation_path(@reservation), class: "c-button -green p-btnWrap__btn" %>
+    <%= link_to "予約削除", @reservation, method: :delete,  class: "c-button -red p-btnWrap__btn", data: { confirm: "本当に削除しますか?" } %>
+  </div>
+<% end %>
