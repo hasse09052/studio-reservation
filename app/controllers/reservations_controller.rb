@@ -1,5 +1,7 @@
 class ReservationsController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update, :create, :destroy]
+  # ログイン済みユーザーかどうか確認
+  before_action :logged_in_user, only: [:index, :edit, :update, :create, :destroy]
+  # ログインユーザの予約かどうか確認
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index

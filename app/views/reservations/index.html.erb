@@ -1,11 +1,10 @@
 <h1>予約一覧</h1>
 <p><%= @startDate.strftime("%Y年%m月%d日#{%w(日 月 火 水 木 金 土)[@startDate.wday]}曜日 %H時%M分") %></p>
 
-<table border="1">
-    <caption>予約表</caption>
-    <thead>
+<table border="1" class="l-table c-table p-reservationTable">
+    <thead class="p-reservationTable__head">
       <tr>
-        <th></th>
+        <th rowspan="2">日時</th>
         <%
           # 変数定義 
           date = @startDate
@@ -25,29 +24,32 @@
         <% end %>
       </tr>
       <tr>
-        <th>日時</th>
         <% for cnt in 0..6 do %>
           <% headerDay = @startDate.since(cnt.days) %>
-          <th><%= headerDay.strftime("%e(#{%w(日 月 火 水 木 金 土)[headerDay.wday]})") %></th>
+          <th class="c-week <%= "-saturday" if headerDay.saturday? %> <%= "-sunday" if headerDay.sunday? %>">
+            <%= headerDay.strftime("%e") %>
+            <br>
+            <%= headerDay.strftime("(#{%w(日 月 火 水 木 金 土)[headerDay.wday]})") %>
+          </th>
         <% end %>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="p-reservationTable__body">
       <%
         date = @startDate
         for roopCnt in 1..8 do
       %>
         <tr>
-          <th><%= date.strftime("%H:%M") %><br>|<br><%= date.since(90.minutes).strftime("%H:%M") %></th>
+          <th class="c-bodyHeader p-reservationTable__bodyHeader"><%= date.strftime("%H:%M") %><br>|<br><%= date.since(90.minutes).strftime("%H:%M") %></th>
           <% for _ in 1..7 do %>
             <% if reservation = @reservations.find_by(start_date: date) %>
               <% if reservation.user_id == current_user.id %>
-                <td><%= link_to "★", reservation_path(reservation) %></td>
+                <td class="p-reservationTable__data"><%= link_to "★", reservation_path(reservation), class: "c-linkData -yours" %></td>
               <% else %>
-                <td><%= link_to "×", reservation_path(reservation) %></td>
+                <td class="p-reservationTable__data"><%= link_to "×", reservation_path(reservation), class: "c-linkData -reserved" %></td>
               <% end %>
             <% else %>
-              <td><%= link_to "◎", "/reservations/new/#{date.year}/#{date.month}/#{date.day}/#{date.hour}/#{date.min}" %></td>
+              <td class="p-reservationTable__data"><%= link_to "◎", "/reservations/new/#{date.year}/#{date.month}/#{date.day}/#{date.hour}/#{date.min}", class: "c-linkData -vacant" %></td>
             <% end %>
           <% date = date.tomorrow  %>
           <% end %>
