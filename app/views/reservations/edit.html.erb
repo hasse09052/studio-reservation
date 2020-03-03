@@ -1,0 +1,22 @@
+<h1>予約情報更新</h1>
+
+<% if @reservation.errors.any? %>
+  <ul class="c-errorBox">
+    <% @reservation.errors.full_messages.each do |message| %>
+      <li class="c-errorBox__test"><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<p><%= @reservation.start_date.strftime("%Y年%m月%d日#{%w(日 月 火 水 木 金 土)[@reservation.start_date.wday]}曜日") %></p>
+<p><%= @reservation.start_date.strftime("%H時%M分") %></p>
+
+<%= form_with model: @reservation, class: "p-userForm__formWrap", local: true do |form| %>
+
+  <div class="p-userForm__inputWrap">
+    <%= form.label :name, "バンド名or氏名:", class: "p-userForm__label" %>
+    <%= form.text_field :name, class: "p-userForm__input" %>
+  </div>
+    
+  <%= form.submit "変更する", class: "c-button -blue p-userForm__btn" %>
+<% end %>

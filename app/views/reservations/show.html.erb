@@ -6,4 +6,5 @@
 <p>予約名: <%= @reservation.name %></p>
 <p>予約者: <%= @user.name %></p>
 
-<%= link_to "予約削除", @reservation, method: :delete, data: { confirm: "You sure?" } %>
+<%= link_to "編集", edit_reservation_path(@reservation) %>
+<%= link_to "予約削除", @reservation, method: :delete, data: { confirm: "本当に削除しますか?" } %>

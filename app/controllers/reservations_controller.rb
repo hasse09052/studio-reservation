@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
-  before_action :correct_user, only: :destroy
+  before_action :logged_in_user, only: [:edit, :update, :create, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
     startDate = Time.current
@@ -34,6 +35,15 @@ class ReservationsController < ApplicationController
 
   def edit
     
+  end
+
+  def update
+    if @reservation.update(name: params[:reservation][:name])
+      flash[:success] = "予約の更新に成功しました"
+      redirect_to reservations_url
+    else
+      render 'edit'
+    end
   end
 
   def destroy
