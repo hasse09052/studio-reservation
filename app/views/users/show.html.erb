@@ -1,16 +1,18 @@
 <h1>マイページ</h1>
 <h2><%= @user.name %>さんの予約一覧</h2>
 
-<% tmpDay = @reservations.first.start_date.day - 1 %>
+<% tmpDay = 0 %>
+<% tmpMonth = 0 %>
 <% @reservations.each do |reservation| %>
   <%
-    if reservation.start_date.day > tmpDay
+    if reservation.start_date.day != tmpDay || reservation.start_date.month != tmpMonth
       tmpDay = reservation.start_date.day
+      tmpMonth = reservation.start_date.month
   %>
-    <h3><%= reservation.start_date.strftime("%Y年%m月%d日#{%w(日 月 火 水 木 金 土)[reservation.start_date.wday]}曜日") %></h3>
+    <h3><%= reservation.start_date.strftime("%Y年%m月%d日(#{%w(日 月 火 水 木 金 土)[reservation.start_date.wday]})") %></h3>
   <% end %>
-    <div class="c-timeCard">
+    <a class="c-timeCard" href="<%= "/reservations/#{reservation.id}" %>">
       <div class="c-timeCard__time"><%= reservation.start_date.strftime("%H時%M分") %></div>
       <div class="c-timeCard__name"><%= reservation.name %></div>
-    </div>
+    </a>
 <% end %>
