@@ -56,6 +56,12 @@
     background: #f8d7da;
     color: #721c24;
   }
+
+  &.-success {
+    border: 1px solid #b8daff;
+    background:#cce5ff;
+    color: #004085;
+  }
 }
 
 // エラー
