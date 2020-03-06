@@ -1,5 +1,17 @@
+// レスポンシブのサイズ
+$spWidth: 767px;
+
+@mixin SP {
+  @media screen and (max-width: $spWidth) {
+    @content;
+  }
+}
+
 // 色
 $myBlack: #261e1c;
 
 // heightの値
 $headerHeight: 60px;
+
+// 予約表の正方形サイズ
+$tableSquareSizePC: 70px;

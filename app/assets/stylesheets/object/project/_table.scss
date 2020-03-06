@@ -1,13 +1,72 @@
 .p-reservationTable{
+  
   &__bodyHeader {
-    width: 70px;
-    height: 70px;
+    width: $tableSquareSizePC;
+    height: $tableSquareSizePC;
     font-size: 1.4rem;
   }
 
+  &__weekRow {
+    
+  }
+
+  &__weekDataHeader {
+    width: $tableSquareSizePC;
+  }
+
+  &__weekData {
+    width: $tableSquareSizePC;
+
+    @include SP {   
+      position: sticky;
+      position: -webkit-sticky;
+      top: 0;
+      z-index: 1;
+    }
+  }
+
   &__data {
-    width: 70px;
-    height: 70px;
-    font-size: 2.2rem;
+    // width: $tableSquareSizePC;
+    // height: $tableSquareSizePC;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $tableSquareSizePC;
+    height: $tableSquareSizePC;
+    font-size: 1.3rem;
+    font-weight: bolder;
+    text-align: center;
+    overflow: hidden;
+
+    &.-vacant {
+      color: #1a0dab;
+      font-size: 2.0rem;
+  
+      &:hover {
+        background: #cce5ff;
+        opacity: 0.7;
+      }
+    }
+  
+    &.-reserved {
+      background: #e2e3e5;
+      color: #383d41;
+  
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  
+    &.-yours {
+      background: #e2e3e5;
+      color: #856404;
+  
+      &:hover {
+        opacity: 0.7;
+      }
+    }
   }
 }
