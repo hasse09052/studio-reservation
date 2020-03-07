@@ -30,13 +30,6 @@
   
   &__btn {
     margin: 30px auto;
-    box-shadow: 3px 3px #627295;
-    transition: 0.3s ease-out;
-
-    &:active {
-      box-shadow: none;
-      transform: translate(3px, 3px);
-    }
   }
 }
 

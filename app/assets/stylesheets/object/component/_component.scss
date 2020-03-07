@@ -40,6 +40,11 @@
   line-height: 50px;
   font-weight: bolder;
   text-align: center;
+  transition: 0.3s ease-out;
+
+  &:hover {
+    opacity: 0.7;
+  }
 
   &.-blue {
     border: 1px solid #0062cc;
