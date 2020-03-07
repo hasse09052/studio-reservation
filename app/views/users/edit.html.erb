@@ -1,30 +1,31 @@
-<div class="l-userForm c-formBox p-userForm">
-  <h1 class="p-userForm__title">個人情報変更</h1>
+<div class="p-background -music">
+  <div class="l-userForm c-formBox p-userForm">
+    <h1 class="p-userForm__title">個人情報変更</h1>
 
-  <%= render "shared/error_messages" %>
+    <%= render "shared/error_messages" %>
 
-  <%= form_with model: @user, class: "p-userForm__formWrap", local: true do |form| %>
-    <div class="p-userForm__inputWrap">
-      <%= form.label :email, "メールアドレス(ログインIDになります):", class: "p-userForm__label" %>
-      <%= form.text_field :email, class: "p-userForm__input" %>
-    </div>
+    <%= form_with model: @user, class: "p-userForm__formWrap", local: true do |form| %>
+      <div class="p-userForm__inputWrap">
+        <%= form.label :email, "メールアドレス(ログインIDになります):", class: "p-userForm__label" %>
+        <%= form.text_field :email, class: "p-userForm__input" %>
+      </div>
 
-    <div class="p-userForm__inputWrap">
-      <%= form.label :name, "氏名:", class: "p-userForm__label" %>
-      <%= form.text_field :name, class: "p-userForm__input" %>
-    </div>
+      <div class="p-userForm__inputWrap">
+        <%= form.label :name, "氏名:", class: "p-userForm__label" %>
+        <%= form.text_field :name, class: "p-userForm__input" %>
+      </div>
 
-    <div class="p-userForm__inputWrap">
-      <%= form.label :password, "新しいパスワード:", class: "p-userForm__label" %>
-      <%= form.password_field :password, placeholder: "変更しないなら入力不要", class: "p-userForm__input" %>
-    </div>
+      <div class="p-userForm__inputWrap">
+        <%= form.label :password, "新しいパスワード:", class: "p-userForm__label" %>
+        <%= form.password_field :password, placeholder: "変更しないなら入力不要", class: "p-userForm__input" %>
+      </div>
 
-    <div class="p-userForm__inputWrap">
-      <%= form.label :password_confirmation, "新しいパスワード再入力:", class: "p-userForm__label" %>
-      <%= form.password_field :password_confirmation, placeholder: "変更しないなら入力不要", class: "p-userForm__input" %>
-    </div>
-      
-    <%= form.submit "更新する", class: "c-button -blue p-userForm__btn" %>
-  <% end %>
+      <div class="p-userForm__inputWrap">
+        <%= form.label :password_confirmation, "新しいパスワード再入力:", class: "p-userForm__label" %>
+        <%= form.password_field :password_confirmation, placeholder: "変更しないなら入力不要", class: "p-userForm__input" %>
+      </div>
+        
+      <%= form.submit "更新する", class: "c-button -blue p-userForm__btn" %>
+    <% end %>
+  </div>
 </div>
-  
