@@ -19,7 +19,7 @@
       </tr>
       <tr class="p-reservationForm__row">
         <th class="p-reservationForm__header">予約者</th>
-        <td class="p-reservationForm__data"><%= @user.name %></td>
+        <td class="p-reservationForm__data -nonePadding"><%= link_to @user.name, user_path(@user.id), class: "p-reservationForm__link" %></td>
       </tr>
     </tbody>
   </table>
