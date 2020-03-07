@@ -1,6 +1,7 @@
 .p-background {
   min-height: calc(100vh - #{$headerHeight});
-  padding: 50px 0;
+  padding: 60px 0;
+  margin: -40px 0;
 
   &.-music {
     background: linear-gradient(-135deg, rgba($color: #E4A972, $alpha: 0.7), rgba($color: #9941D8, $alpha: 0.7)),
