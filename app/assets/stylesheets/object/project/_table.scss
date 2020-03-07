@@ -40,6 +40,7 @@
     font-weight: bolder;
     text-align: center;
     overflow: hidden;
+    transition: 0.3s ease-out;
 
     &.-vacant {
       color: #1a0dab;
