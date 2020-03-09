@@ -16,6 +16,7 @@
   </head>
 
   <body>
+    <div class="p-overlay" id="overlay"></div>
     <header class="l-header p-header">
       <figure class="p-header__left">
         <% if logged_in? %>
@@ -37,7 +38,7 @@
               <%= link_to "個人情報", edit_user_path(id: current_user.id), class: "c-link p-header__link" %>
             </li>
             <li class="p-header__item">
-              <%= link_to "ログアウト", logout_path, method: :delete, class: "c-link p-header__link" %>
+              <button class="c-link c-noneBtn p-header__link" id="logoutBtn">ログアウト</button>
             </li>
           <% else %>
             <li class="p-header__item <%= '-selected' if current_page?(root_path) %>">
@@ -61,8 +62,18 @@
       <%= yield %>
     </main>
 
+    <%# ログアウトモーダル %>
+    <div class="p-modal" id="logoutModal">
+      <p class="p-modal__text">ログアウトしますか？</p>
+      <div class="p-modal__buttonWrap">
+        <button class="p-modal__modalBtn" id="overlayHiddenBtn">キャンセル</button>
+        <%= link_to "ログアウト", logout_path, method: :delete, class: "p-modal__modalBtn -red" %>
+      </div>
+    </div>
+
     <%# デバッグ %>
     <%= debug(params) if Rails.env.development? %>
     
+    <%= javascript_pack_tag 'libs' %>
   </body>
 </html>

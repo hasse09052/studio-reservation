@@ -224,3 +224,10 @@
     // }
   }
 }
+
+// buttonのデザインを削除
+.c-noneBtn {
+  padding: 0;
+  border: none;
+  background: none;
+}
