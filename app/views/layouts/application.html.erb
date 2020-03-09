@@ -73,6 +73,11 @@
 
     <%# デバッグ %>
     <%= debug(params) if Rails.env.development? %>
+
+    <%# フッター %>
+    <footer class="l-footer p-footer">
+      <small class="p-footer__copyright">&copy; 2020 hasse09052.</small>
+    </footer>
     
     <%= javascript_pack_tag 'libs' %>
   </body>

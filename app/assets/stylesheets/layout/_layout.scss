@@ -1,9 +1,13 @@
 .l-header {
-  height: 60px;
+  height: $headerHeight;
 }
 
 .l-main {
   padding: 40px 0;
+}
+
+.l-footer {
+  height: $footerHeight;
 }
 
 .l-userForm {

@@ -1,5 +1,5 @@
 .p-background {
-  min-height: calc(100vh - #{$headerHeight});
+  min-height: calc(100vh - #{$headerHeight} - #{$footerHeight});
   padding: 60px 0;
   margin: -40px 0;
 
