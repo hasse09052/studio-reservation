@@ -5,7 +5,13 @@ class ReservationsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    startDate = Time.current
+    @limitStartWeek = 1
+    @limitEndWeek = 3
+    if params[:week].to_i < @limitStartWeek || params[:week].to_i > @limitEndWeek
+      redirect_to "/reservations/table/1"
+    end
+    afterWeek = params[:week].to_i - 1
+    startDate = Time.current.weeks_since(afterWeek)
     @startDate = Time.zone.local(startDate.year, startDate.month, startDate.day, 9, 00, 00)
     @reservations = Reservation.all
   end
@@ -29,7 +35,7 @@ class ReservationsController < ApplicationController
 
     if @reservation.save
       flash[:success] = "予約に成功しました！"
-      redirect_to reservations_url
+      redirect_to "/reservations/table/1"
     else
       render "reservations/new"
     end
@@ -42,7 +48,7 @@ class ReservationsController < ApplicationController
   def update
     if @reservation.update(name: params[:reservation][:name])
       flash[:success] = "予約の更新に成功しました"
-      redirect_to reservations_url
+      redirect_to "/reservations/table/1"
     else
       render 'edit'
     end
@@ -51,7 +57,7 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation.destroy
     flash[:success] = "予約を削除しました"
-    redirect_to reservations_url
+    redirect_to "/reservations/table/1"
   end
 
   private
@@ -61,7 +67,7 @@ class ReservationsController < ApplicationController
       @reservation = current_user.reservations.find_by(id: params[:id])
       if @reservation.nil?
         flash[:denger] = "あなたの予約ではありません"
-        redirect_to reservations_url
+        redirect_to "/reservations/table/1"
       end
     end
 

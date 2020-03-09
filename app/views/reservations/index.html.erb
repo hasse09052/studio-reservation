@@ -1,6 +1,16 @@
 <h1 class="c-pageTitle">予約一覧</h1>
 
-<table border="1" class="l-table c-table p-reservationTable">
+<div class="l-table">
+  <div class="p-weekOperationBtn">
+    <% if params[:week].to_i > @limitStartWeek %>
+      <a class="c-leftArrow c-button -outlineGray p-weekOperationBtn__btn -left" href="/reservations/table/<%= params[:week].to_i - 1 %>">1週間前</a>
+    <% end %>
+    <% if params[:week].to_i < @limitEndWeek %>
+      <a class="c-rightArrow c-button -outlineGray p-weekOperationBtn__btn -right" href="/reservations/table/<%= params[:week].to_i + 1 %>">1週間後</a>
+    <% end %>
+  </div>
+
+  <table border="1" class="c-table p-reservationTable">
     <thead class="p-reservationTable__head">
       <tr>
         <th>年月</th>
@@ -65,3 +75,4 @@
       <% end  %>
     </tbody>
   </table>
+</div>

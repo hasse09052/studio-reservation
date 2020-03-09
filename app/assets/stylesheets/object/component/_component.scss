@@ -44,6 +44,7 @@
 
   &:hover {
     opacity: 0.7;
+    cursor: pointer;
   }
 
   &.-blue {
@@ -62,6 +63,17 @@
     border: 1px solid #1e7e34;
     background: #218838;
     color: white;
+  }
+
+  &.-outlineGray {
+    border: 1px solid #6C7577;
+    color: #6c757d;
+
+    &:hover {
+      border: 1px solid #6c757d;
+      background: #6c757d;
+      color: white;
+    }
   }
 }
 
@@ -144,5 +156,71 @@
     flex-grow: 1;
     padding: 10px 20px;
     transition: 0.4s ease-out;
+  }
+}
+
+// 左矢印
+.c-leftArrow {
+  position: relative;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-top: 3px solid;
+    border-left: 3px solid;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: rotate(-45deg) translate(0, -50%);
+
+    &.-outlineGray {
+      border-color: #6c757d;
+    }
+  }
+}
+
+// 左矢印
+.c-leftArrow {
+  position: relative;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-top: 3px solid;
+    border-left: 3px solid;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: rotate(-45deg) translate(0, -50%);
+
+    // &.-outlineGray {
+    //   border-color: #6c757d;
+    // }
+  }
+}
+
+// 右矢印
+.c-rightArrow {
+  position: relative;
+
+  &::after {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-top: 3px solid;
+    border-right: 3px solid;
+    position: absolute;
+    top: 50%;
+    right: 20%;
+    transform: rotate(45deg) translate(0, -50%);
+
+    // &.-outlineGray {
+    //   border-color: #6c757d;
+    // }
   }
 }

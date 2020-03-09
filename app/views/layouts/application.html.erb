@@ -20,7 +20,7 @@
     <header class="l-header p-header">
       <figure class="p-header__left">
         <% if logged_in? %>
-          <a href="<%= reservations_path %>" class="c-link"><img src="/assets/icon_guitar.svg" alt="ロゴ画像(トップリンク)" class="p-header__logoImg"></a>
+          <a href="/reservations/table/1" class="c-link"><img src="/assets/icon_guitar.svg" alt="ロゴ画像(トップリンク)" class="p-header__logoImg"></a>
         <% else %>
           <a href="/" class="c-link"><img src="/assets/icon_guitar.svg" alt="ロゴ画像(トップリンク)" class="p-header__logoImg"></a>
         <% end %>
@@ -28,8 +28,8 @@
       <nav class="p-header__right">
         <ul class="p-header__lists">
           <% if logged_in? %>
-            <li class="p-header__item <%= '-selected' if current_page?(reservations_path) %>">
-              <%= link_to "予約", reservations_path, class: "c-link p-header__link" %>
+            <li class="p-header__item <%= '-selected' if current_page?("/reservations/table/1") %>">
+              <%= link_to "予約", "/reservations/table/1", class: "c-link p-header__link" %>
             </li>
             <li class="p-header__item <%= '-selected' if current_page?(current_user) %>">
               <%= link_to "マイページ", current_user, class: "c-link p-header__link" %>

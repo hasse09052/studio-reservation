@@ -1,7 +1,25 @@
 .p-btnWrap {
+  display: flex;
 
   &__btn {
     width: 250px;
     margin: 0 auto 20px;
+  }
+}
+
+.p-weekOperationBtn {
+  display: flex;
+  margin: 0 0 30px;
+
+  &__btn {
+    width: 40%;
+
+    &.-left {
+      margin: 0 auto 0 0;
+    }
+
+    &.-right {
+      margin: 0 0 0 auto;
+    }
   }
 }
