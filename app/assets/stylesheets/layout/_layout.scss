@@ -3,6 +3,7 @@
 }
 
 .l-main {
+  min-height: calc(100vh - #{$headerHeight} - #{$footerHeight});
   padding: 40px 0;
 }
 
