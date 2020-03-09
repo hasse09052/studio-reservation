@@ -1,0 +1,63 @@
+.p-overlay {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  opacity: 0.7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.p-modal {
+  display: none;
+  width: 400px;
+  height: 200px;
+  border-radius: 8px;
+  background: white;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+
+  &__text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    padding: 0 3.5%;
+    margin: 0;
+    //border-bottom: 1px solid #333333;
+    font-size: 2.0rem;
+    text-align: center;
+  }
+
+  &__buttonWrap {
+    display: flex;
+    height: 50px;
+  }
+
+  &__modalBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    border: none;
+    background: #9193a0;
+    color: white;
+    font-size: 1.8rem;
+    transition: 0.3s ease-out;
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    &.-red {
+      background: #c93a40;
+    }
+  }
+}

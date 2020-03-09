@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'reservation' %>
 <h1 class="c-pageTitle">予約確認</h1>
 
 <% startDate = @reservation.start_date %>
@@ -27,7 +28,17 @@
   <% if current_user == @user %>
     <div class="p-btnWrap">
       <%= link_to "編集", edit_reservation_path(@reservation), class: "c-button -green p-btnWrap__btn" %>
-      <%= link_to "予約削除", @reservation, method: :delete,  class: "c-button -red p-btnWrap__btn", data: { confirm: "本当に削除しますか?" } %>
+      <button class="c-button -red p-btnWrap__btn" id="deleteReservationBtn">予約削除</button>
+      <!-- <%= link_to "予約削除", @reservation, method: :delete,  class: "c-button -red p-btnWrap__btn", data: { confirm: "本当に削除しますか?" } %> -->
     </div>
   <% end %>
+</div>
+
+<div class="p-overlay" id="overlay"></div>
+<div class="p-modal" id="deleteReservationModal">
+  <p class="p-modal__text">予約を削除してもよろしいですか？</p>
+  <div class="p-modal__buttonWrap">
+    <button class="p-modal__modalBtn" id="overlayHiddenBtn">キャンセル</button>
+    <%= link_to "削除する", @reservation, method: :delete, class: "p-modal__modalBtn -red" %>
+  </div>
 </div>
