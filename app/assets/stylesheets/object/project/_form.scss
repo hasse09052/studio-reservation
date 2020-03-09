@@ -56,12 +56,23 @@
     &.-nonePadding {
       padding: 0;
     }
+
+    &.-withBtn {
+      display: flex;
+      width: 100%;
+      border: none;
+    }
   }
 
   &__input {
     width: 100%;
     padding: 5px;
     font-size: 1.7rem;
+
+    &.-withBtn {
+      flex: 0 1 75%;
+      margin: 0 10px 0 0;
+    }
   }
   
   &__link {
@@ -79,5 +90,18 @@
   &__btn {
     width: 65%;
     margin: 30px auto;
+  }
+
+  &__smallBtn {
+    flex-grow: 1;
+    border: 1px solid #1e7e34;
+    border-radius: 4px;
+    background: #218838;
+    color: white;
+    transition: 0.3s ease-out;
+
+    &:hover {
+      opacity: 0.7;
+    }
   }
 }
