@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'libs' %>
 <input type="hidden" value="<%= current_user.name %>" id="currentUserName">
 
 <h1 class="c-pageTitle">予約する</h1>
@@ -33,7 +34,7 @@
         <tr class="p-reservationForm__row">
           <th class="p-reservationForm__header"><%= form.label :name, "バンド名or氏名", class: "" %></th>
           <td class="p-reservationForm__data -withBtn">
-            <%= form.text_field :name, class: "p-reservationForm__input -withBtn", id: "nameField" %>
+            <%= form.text_field :name, class: "p-reservationForm__input -withBtn", id: "nameField", value: "" %>
             <button type="button" id="autoInputNameButton" class="p-reservationForm__smallBtn">自動入力</button>
           </td>
         </tr>
