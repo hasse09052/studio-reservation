@@ -29,8 +29,17 @@
     <div class="p-btnWrap">
       <%= link_to "編集", edit_reservation_path(@reservation), class: "c-button -green p-btnWrap__btn" %>
       <button class="c-button -red p-btnWrap__btn" id="deleteBtn">予約削除</button>
-      <!-- <%= link_to "予約削除", @reservation, method: :delete,  class: "c-button -red p-btnWrap__btn", data: { confirm: "本当に削除しますか?" } %> -->
     </div>
+  <% else %>
+      <% if current_user.mylist?(@reservation) %>
+      <div class="p-btnWrap">
+        <%= link_to "★ マイリストに追加済み", "/mylists/#{@reservation.id}/destroy", method: :delete, class: "c-button -pushed p-btnWrap__btn" %>
+      </div>
+    <% else %>
+      <div class="p-btnWrap">
+        <%= link_to "★ マイリストに追加", "/mylists/#{@reservation.id}/create", method: :post, class: "c-button -orange p-btnWrap__btn" %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 

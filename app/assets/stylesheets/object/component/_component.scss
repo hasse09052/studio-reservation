@@ -65,6 +65,18 @@
     color: white;
   }
 
+  &.-orange {
+    border: 1px solid #d88314;
+    background: #d78114;
+    color: white;
+  }
+
+  &.-pushed {
+    border: 1px solid #545b62;
+    background: #5a6268;
+    color: white;
+  }
+
   &.-outlineGray {
     border: 1px solid #6C7577;
     color: #6c757d;

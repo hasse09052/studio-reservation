@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
   has_many :reservations, dependent: :destroy
+  has_many :mylists, dependent: :destroy
+  has_many :mylist_reservations, through: :mylists, source: :reservation
   has_secure_password
   before_save { self.email = self.email.downcase }
 
@@ -42,6 +44,11 @@ class User < ApplicationRecord
     else
       return BCrypt::Password.new(self.remember_digest).is_password?(remember_token)
     end
+  end
+
+  # マイリスト済みならtrueを返す,してないならfalseを返す
+  def mylist?(reservation)
+    return self.mylist_reservations.include?(reservation)
   end
 
 end
