@@ -10,7 +10,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @reservations = @user.reservations.all.order(:start_date)
+    @userReservations = @user.reservations.all.order(:start_date)
+    @mylistReservations = @user.mylist_reservations.all.order(:start_date)
+    @reservations =  (@userReservations + @mylistReservations).sort_by { |item| item[:start_date] }
   end
 
   def new

@@ -1,5 +1,5 @@
 <h1 class="c-pageTitle">マイページ</h1>
-<h2 class="c-subTitle"><%= @user.name %>さんの予約一覧</h2>
+<h2 class="c-subTitle"><%= @user.name %>さんの予約・マイリスト一覧</h2>
 
 <% if @reservations.any? %>
   <div class="l-timeCard p-timeCard">
@@ -15,10 +15,11 @@
       <% end %>
         <a class="c-timeCard" href="<%= "/reservations/#{reservation.id}" %>">
           <div class="c-timeCard__time p-timeCard__time"><%= reservation.start_date.strftime("%H時%M分") %></div>
-          <div class="c-timeCard__name p-timeCard__name"><%= reservation.name %></div>
+          <div class="c-timeCard__name p-timeCard__name"><%= reservation.name %> <%= "(マイリスト)" if @mylistReservations.include?(reservation) %></div>
         </a>
     <% end %>
   </div>
 <% else %>
-  <p class="c-centerText">予約はありません</p>
+  <p class="c-centerText">予約とマイリストはありません</p>
 <% end %>
+
