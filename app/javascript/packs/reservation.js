@@ -4,4 +4,11 @@ $(function() {
     userName = $("#currentUserName").val();
     $("#nameField").val(userName);
   });
+
+  $("#removeMylistBtn").hover(()=>{
+    beforeText = $("#removeMylistBtn").text();
+    $("#removeMylistBtn").text("★ マイリストから解除する");
+  }, ()=>{
+    $("#removeMylistBtn").text(beforeText);
+  });
 });

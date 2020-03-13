@@ -66,15 +66,14 @@
   }
 
   &.-orange {
-    border: 1px solid #d88314;
+    border: 1px solid #d88315;
     background: #d78114;
     color: white;
   }
 
-  &.-pushed {
-    border: 1px solid #545b62;
-    background: #5a6268;
-    color: white;
+  &.-outlineOrange {
+    border: 1px solid #d88314;
+    color: #d88314;
   }
 
   &.-outlineGray {
