@@ -53,7 +53,7 @@
           <th class="c-bodyHeader p-reservationTable__bodyHeader"><%= date.strftime("%H:%M") %><br>|<br><%= date.since(90.minutes).strftime("%H:%M") %></th>
           <% for _ in 1..7 do %>
             <% if reservation = @reservations.find_by(start_date: date) %>
-              <% if reservation.user_id == current_user.id %>
+              <% if reservation.user_id == current_user.id || @mylistReservations.include?(reservation) %>
                 <td class="p-reservationTable__data">
                   <%= link_to reservation.name, reservation_path(reservation), class: "p-reservationTable__link -yours" %>
                 </td>
