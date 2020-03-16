@@ -74,6 +74,13 @@
   &.-outlineOrange {
     border: 1px solid #d88314;
     color: #d88314;
+
+    &:hover {
+      border: 1px solid #d88314;
+      background: #d88314;
+      color: white;
+      opacity: 1;
+    }
   }
 
   &.-outlineGray {
