@@ -31,7 +31,7 @@
       <button class="c-button -red p-btnWrap__btn" id="deleteBtn">予約削除</button>
     </div>
   <% else %>
-      <% if current_user.mylist?(@reservation) %>
+    <% if current_user.mylist?(@reservation) %>
       <div class="p-btnWrap">
         <%= link_to "★ マイリストに追加済み", "/mylists/#{@reservation.id}/destroy", method: :delete, class: "c-button -orange p-btnWrap__btn", id: "removeMylistBtn" %>
       </div>
@@ -41,6 +41,9 @@
       </div>
     <% end %>
   <% end %>
+  <div class="p-btnWrap">
+    <%= link_to "一覧に戻る", "/reservations/table/1", class: "c-button -outlineGray p-btnWrap__btn" %>
+  </div>
 </div>
 
 <div class="p-modal" id="deleteModal">
