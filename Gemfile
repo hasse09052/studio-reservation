@@ -15,6 +15,8 @@ gem 'rails-i18n'
 # 日付操作用
 gem "activesupport"
 
+# 環境変数扱う用(パスワード隠す)
+gem 'dotenv-rails'
 
 # Use Puma as the app server
 gem 'puma', '~> 4.3.2'
