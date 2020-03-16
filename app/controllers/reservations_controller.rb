@@ -67,7 +67,7 @@ class ReservationsController < ApplicationController
     def correct_user
       @reservation = current_user.reservations.find_by(id: params[:id])
       if @reservation.nil?
-        flash[:denger] = "あなたの予約ではありません"
+        flash[:danger] = "あなたの予約ではありません"
         redirect_to "/reservations/table/1"
       end
     end
