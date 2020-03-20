@@ -56,6 +56,12 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
+    # メール送信
+    users = User.all
+    users.each do |user|
+      DeleteReservationMailer.send_when_delete_reservation(user, @reservation).deliver_now
+    end
+
     @reservation.destroy
     flash[:success] = "予約を削除しました"
     redirect_to "/reservations/table/1"

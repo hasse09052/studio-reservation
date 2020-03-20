@@ -18,6 +18,5 @@ module StudioReservation
     # タイムゾーンを日本に
     config.time_zone = 'Tokyo'
 
-
   end
 end

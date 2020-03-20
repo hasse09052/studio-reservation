@@ -1,0 +1,11 @@
+スタジオ管理アプリ 登録者の皆様
+
+予約が削除されたためご連絡致します。削除された予約は、
+
+日程:<%= @reservation.start_date.strftime("%Y年 %m月%d日(#{%w(日 月 火 水 木 金 土)[@reservation.start_date.wday]})") %>
+時間:<%= @reservation.start_date.strftime("%H時%M分〜") %>
+名前:<%= @reservation.name %>
+
+となります。
+予約される方は、下記URLからよろしくお願いいたします。
+http://localhost:3000/reservations/new/<%= @reservation.start_date.strftime("%Y/%m/%d/%H/%M") %>
