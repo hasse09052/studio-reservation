@@ -25,8 +25,14 @@
           <a href="/" class="c-link"><img src="/assets/icon_guitar.svg" alt="ロゴ画像(トップリンク)" class="p-header__logoImg"></a>
         <% end %>
       </figure>
+      <button class="c-noneBtn p-hamburgerBtn" id="hamburgerBtn">
+        <div class="p-hamburgerBtn__line1"></div>
+        <div class="p-hamburgerBtn__line2"></div>
+        <div class="p-hamburgerBtn__line3"></div>
+        <div class="p-hamburgerBtn__text" id="hamburgerBtnText">Menu</div>
+      </button>
       <nav class="p-header__right">
-        <ul class="p-header__lists">
+        <ul class="p-header__lists" id="headerMenus">
           <% if logged_in? %>
             <li class="p-header__item <%= '-selected' if current_page?("/reservations/table/1") %>">
               <%= link_to "予約", "/reservations/table/1", class: "c-link p-header__link" %>
@@ -72,7 +78,7 @@
     </div>
 
     <%# デバッグ %>
-    <%= debug(params) if Rails.env.development? %>
+    <%#= debug(params) if Rails.env.development? %>
 
     <%# フッター %>
     <footer class="l-footer p-footer">

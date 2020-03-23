@@ -5,21 +5,61 @@
   padding: 10px 50px;
   background: $myBlack;
 
+  @include SP {
+    width: 100%;
+    padding: 10px 3.5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
   &__lists {
     display: flex;
+
+    @include SP {
+      display: none;
+      width: 100vw;
+      height: calc(100vh - #{$headerHeight});
+      margin: 0;
+      border-top: 1px solid white;
+      background: #261e1c;
+      position: fixed;
+      top: $headerHeight;
+      left: 0;
+      z-index: 1;
+    }
   }
 
   &__item {
     margin: 0 10px;
 
+    @include SP {
+      margin: 0;
+      border-bottom: 1px solid white;
+    }
+
     &.-selected {
       border-bottom: 2px solid white;
+
+      @include SP {
+        border-bottom: 1px solid white;
+        background: rgba($color: #850808, $alpha: 0.7);
+        text-decoration: underline;
+      }
     }
   }
 
   &__link {
     color: white;
     font-size: 1.6rem;
+
+    @include SP {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 15px 3.5%;
+    }
   }
 
   &__logoImg {

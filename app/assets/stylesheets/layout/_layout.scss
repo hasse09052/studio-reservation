@@ -5,6 +5,11 @@
 .l-main {
   min-height: calc(100vh - #{$headerHeight} - #{$footerHeight});
   padding: 40px 0;
+
+  @include SP {
+    min-height: calc(100vh - #{$footerHeight});
+    padding: calc(#{$headerHeight} + 40px) 3.5% 40px;
+  }
 }
 
 .l-footer {

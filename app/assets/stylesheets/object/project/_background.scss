@@ -9,4 +9,8 @@
     background-position: bottom center;
     background-size: cover;
   }
+
+  @include SP {
+    margin: -40px -3.5%;
+  }
 }
