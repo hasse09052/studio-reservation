@@ -15,5 +15,9 @@ $linkBlue: #0645AD;
 $headerHeight: 60px;
 $footerHeight: 50px;
 
+// SP版paddingの横幅の余白
+$sidePaddingSP: 10px;
+
 // 予約表の正方形サイズ
 $tableSquareSizePC: 70px;
+$tableSquareSizeSP: calc(100vw / 8 - 4px);

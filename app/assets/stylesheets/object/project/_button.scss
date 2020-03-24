@@ -11,6 +11,10 @@
   display: flex;
   margin: 0 0 30px;
 
+  @include SP {
+    padding: 0 $sidePaddingSP;
+  }
+
   &__btn {
     width: 40%;
 

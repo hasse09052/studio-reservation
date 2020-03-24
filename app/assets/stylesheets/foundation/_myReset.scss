@@ -8,6 +8,10 @@ html {
   font-size: 62.5%;
   /* 基本の文字色を少しグレーに近づける */
   color: #333333;
+
+  @media screen and (max-width: 767px) {
+    font-size: 52.5%;
+  }
 }
 
 body {

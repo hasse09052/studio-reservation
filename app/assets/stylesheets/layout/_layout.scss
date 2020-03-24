@@ -8,7 +8,7 @@
 
   @include SP {
     min-height: calc(100vh - #{$footerHeight});
-    padding: calc(#{$headerHeight} + 40px) 3.5% 40px;
+    padding: calc(#{$headerHeight} + 40px) $sidePaddingSP 40px;
   }
 }
 
@@ -29,6 +29,11 @@
 .l-table {
   width: 582px;
   margin: 0 auto;
+
+  @include SP {
+    width: 100vw;
+    margin: 0 -$sidePaddingSP;
+  }
 }
 
 .l-timeCard {

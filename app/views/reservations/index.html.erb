@@ -54,12 +54,17 @@
           <% for _ in 1..7 do %>
             <% if reservation = @reservations.find_by(start_date: date) %>
               <% if reservation.user_id == current_user.id || @mylistReservations.include?(reservation) %>
-                <td class="p-reservationTable__data">
-                  <%= link_to reservation.name, reservation_path(reservation), class: "p-reservationTable__link -yours" %>
+                <td class="p-reservationTable__data -reserved">
+                  <%= link_to reservation.name, reservation_path(reservation), class: "p-reservationTable__link -yours -pc" %>
+                  <%= link_to reservation.name.length > 4 ? reservation.name.slice(0..2) + "…" : reservation.name,
+                      reservation_path(reservation), class: "p-reservationTable__link -yours -sp" %>
                 </td>
               <% else %>
-                <td class="p-reservationTable__data">
-                  <%= link_to reservation.name, reservation_path(reservation), class: "p-reservationTable__link -reserved" %>
+                <td class="p-reservationTable__data -reserved">
+                  <%= link_to reservation.name,
+                      reservation_path(reservation), class: "p-reservationTable__link -reserved -pc" %>
+                  <%= link_to reservation.name.length > 4 ? reservation.name.slice(0..2) + "…" : reservation.name,
+                      reservation_path(reservation), class: "p-reservationTable__link -reserved -sp" %>
                 </td>
               <% end %>
             <% else %>

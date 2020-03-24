@@ -1,0 +1,15 @@
+.u-pc {
+  display: block;
+  
+  @include SP {
+    display: none;
+  }
+}
+
+.u-sp {
+  display: none;
+
+  @include SP {
+    display: block;
+  }
+}

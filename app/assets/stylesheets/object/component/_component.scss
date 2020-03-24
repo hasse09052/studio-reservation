@@ -36,11 +36,17 @@
   height: 50px;
   border: none;
   border-radius: 4px;
-  font-size: 1.8rem;
+  font-size: 18px;
   line-height: 50px;
   font-weight: bolder;
   text-align: center;
   transition: 0.3s ease-out;
+
+  @include SP {
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+  }
 
   &:hover {
     opacity: 0.7;
@@ -106,6 +112,10 @@
   margin: 0;
   padding: 20px 0;
   text-align: center;
+
+  @include SP {
+    margin: $headerHeight 0 (-$headerHeight);
+  }
 
   &.-danger {
     border: 1px solid #f5c6cb;
@@ -181,28 +191,6 @@
 .c-leftArrow {
   position: relative;
 
-  &:before {
-    content: "";
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    border-top: 3px solid;
-    border-left: 3px solid;
-    position: absolute;
-    top: 50%;
-    left: 20%;
-    transform: rotate(-45deg) translate(0, -50%);
-
-    &.-outlineGray {
-      border-color: #6c757d;
-    }
-  }
-}
-
-// 左矢印
-.c-leftArrow {
-  position: relative;
-
   &::before {
     content: "";
     display: inline-block;
@@ -215,9 +203,13 @@
     left: 20%;
     transform: rotate(-45deg) translate(0, -50%);
 
-    // &.-outlineGray {
-    //   border-color: #6c757d;
-    // }
+    @include SP {
+      width: 10px;
+      height: 10px;
+      border-top: 2px solid;
+      border-left: 2px solid;
+      left: 18%;
+    }
   }
 }
 
@@ -237,9 +229,13 @@
     right: 20%;
     transform: rotate(45deg) translate(0, -50%);
 
-    // &.-outlineGray {
-    //   border-color: #6c757d;
-    // }
+    @include SP {
+      width: 10px;
+      height: 10px;
+      border-top: 2px solid;
+      border-right: 2px solid;
+      right: 18%;
+    }
   }
 }
 

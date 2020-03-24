@@ -1,34 +1,61 @@
 .p-reservationTable{
   margin: 0 auto;
+
+  &__head {
+    @include SP {
+      font-size: 3vw;
+    }
+  }
   
   &__bodyHeader {
     width: $tableSquareSizePC;
     height: $tableSquareSizePC;
     font-size: 1.4rem;
+
+    @include SP {
+      width: $tableSquareSizeSP;
+      height: $tableSquareSizeSP;
+      font-size: 2.8vw;
+      white-space: nowrap;
+    }
   }
 
   &__weekRow {
-    
   }
 
   &__weekDataHeader {
     width: $tableSquareSizePC;
+
+    @include SP {
+      width: $tableSquareSizeSP;
+    }
   }
 
   &__weekData {
     width: $tableSquareSizePC;
 
     @include SP {
+      width: $tableSquareSizeSP;
+      height: $tableSquareSizeSP;
       position: sticky;
       position: -webkit-sticky;
-      top: 0;
-      z-index: 1;
+      top: $headerHeight;
     }
   }
 
   &__data {
     // width: $tableSquareSizePC;
     // height: $tableSquareSizePC;
+    width: auto;
+    height: auto;
+
+    &.-reserved {
+      background: #e2e3e5;
+  
+      &:hover {
+        opacity: 0.7;
+      }
+    }
   }
 
   &__link {
@@ -43,9 +70,19 @@
     overflow: hidden;
     transition: 0.3s ease-out;
 
+    @include SP {
+      width: $tableSquareSizeSP;
+      height: $tableSquareSizeSP;
+      font-size: 2.8vw;
+    }
+
     &.-vacant {
       color: #1a0dab;
       font-size: 2.0rem;
+
+      @include SP {
+        font-size: 3.8vw;
+      }
   
       &:hover {
         background: #cce5ff;
@@ -69,6 +106,22 @@
   
       &:hover {
         opacity: 0.7;
+      }
+    }
+
+    &.-pc {
+      display: flex;
+      
+      @include SP {
+        display: none;
+      }
+    }
+    
+    &.-sp {
+      display: none;
+    
+      @include SP {
+        display: flex;
       }
     }
   }
