@@ -3,15 +3,15 @@
   padding: 60px 0;
   margin: -40px 0;
 
+  @include SP {
+    padding: 30px $sidePaddingSP;
+    margin: -40px (-$sidePaddingSP);
+  }
+
   &.-music {
     background: linear-gradient(-135deg, rgba($color: #E4A972, $alpha: 0.7), rgba($color: #9941D8, $alpha: 0.7)),
                 url("/assets/bg_music.jpg");
     background-position: bottom center;
     background-size: cover;
-  }
-
-  @include SP {
-    padding: 0 $sidePaddingSP;
-    margin: -40px -$sidePaddingSP;
   }
 }

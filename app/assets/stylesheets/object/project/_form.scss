@@ -1,5 +1,9 @@
 .p-userForm {
   padding: 30px 40px 20px;
+
+  @include SP {
+    padding: 20px;
+  }
   
   &.-bg {
     background: rgba($color: white, $alpha: 0.8);
@@ -16,7 +20,7 @@
   }
 
   &__label {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: bolder;
   }
 
@@ -25,7 +29,7 @@
     width: 100%;
     height: 35px;
     padding: 5px;
-    font-size: 1.8rem;
+    font-size: 16px;
   }
   
   &__btn {
