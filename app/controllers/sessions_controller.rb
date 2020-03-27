@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
       log_in @user 
       
-      redirect_back_or @user
+      redirect_back_or "/reservations/table/1"
     else
       flash.now[:danger] = 'メールアドレスかパスワードが間違っています'
       render 'new'
