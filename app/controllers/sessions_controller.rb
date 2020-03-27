@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   
   def new
+    redirect_to "/reservations/table/1" if logged_in?
   end
 
   def create
