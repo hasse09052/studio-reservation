@@ -32,15 +32,21 @@
           <td class="p-reservationForm__data"><%= @reservation_time.strftime("%H時%M分") %> 〜 <%= @reservation_time.since(90.minutes).strftime("%H時%M分") %></td>
         </tr>
         <tr class="p-reservationForm__row">
-          <th class="p-reservationForm__header"><%= form.label :name, "バンド名or氏名", class: "" %></th>
+          <th class="p-reservationForm__header"><%= form.label :name, "登録名", class: "" %></th>
           <td class="p-reservationForm__data -withBtn">
             <%= form.text_field :name, class: "p-reservationForm__input -withBtn", id: "nameField", value: "" %>
-            <button type="button" id="autoInputNameButton" class="p-reservationForm__smallBtn">自動入力</button>
+            <button type="button" id="autoInputNameButton" class="p-reservationForm__smallBtn">自動<br class="u-sp">入力</button>
           </td>
         </tr>
       </tbody>
     </table>
-      
-    <%= form.submit "登録する", class: "c-button -blue p-reservationForm__btn" %>
+
+    <div class="p-btnWrap">
+      <%= form.submit "登録する", class: "c-button -blue p-btnWrap__btn" %>
+    </div>
+    <div class="p-btnWrap">
+      <%= link_to "一覧に戻る", "/reservations/table/1", class: "c-button -outlineGray p-btnWrap__btn" %>
+    </div>
+    
   <% end %>
 </div>
