@@ -28,6 +28,9 @@ $(function () {
   $("#overlayHiddenBtn").click(() => {
     hiddenDeleteModal();
   });
+  $("#cancelReservationBtn").click(() => {
+    hiddenDeleteModal();
+  });
 
   // オーバーレイをクリックでモーダル非表示
   $("#overlay").click(() => {
