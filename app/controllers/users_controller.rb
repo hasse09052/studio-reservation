@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "ユーザー登録に成功しました！"
-      redirect_to users_url
+      redirect_to "/reservations/table/1"
     else
       render "users/new"
     end
