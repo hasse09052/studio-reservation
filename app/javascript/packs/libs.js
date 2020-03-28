@@ -49,7 +49,7 @@ $(function () {
   $("#overlayHiddenBtn").click(() => {
     hiddenDeleteModal();
   });
-  $("#cancelReservationBtn").click(() => {
+  $("#cancelModalBtn").click(() => {
     hiddenDeleteModal();
   });
 

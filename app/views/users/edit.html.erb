@@ -26,6 +26,15 @@
       </div>
         
       <%= form.submit "更新する", class: "c-button -blue p-userForm__btn" %>
+      <button type="button" class="c-button -red p-userForm__btn" id="deleteBtn">ユーザー削除</button>
     <% end %>
+  </div>
+</div>
+
+<div class="p-modal" id="deleteModal">
+  <p class="p-modal__text">アカウントを削除します。<br>本当に削除してもよろしいですか？</p>
+  <div class="p-modal__buttonWrap">
+    <button class="p-modal__modalBtn" id="cancelModalBtn">キャンセル</button>
+    <%= link_to "削除する", @user, method: :delete, class: "p-modal__modalBtn -red" %>
   </div>
 </div>

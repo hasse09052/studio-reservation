@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-  before_action :logged_in_user, only: [:edit, :update]
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update, :destroy]
+  before_action :correct_user,   only: [:edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -38,6 +38,16 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       flash[:success] = "ユーザー情報の更新に成功しました"
       redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      flash[:success] = "アカウントを削除しました"
+      redirect_to root_url
     else
       render 'edit'
     end
