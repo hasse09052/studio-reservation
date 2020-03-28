@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
       redirect_back_or "/reservations/table/1"
     else
       flash.now[:danger] = 'メールアドレスかパスワードが間違っています'
+      @email = params[:email]
       render 'new'
     end
   end

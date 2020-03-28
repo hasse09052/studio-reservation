@@ -6,7 +6,7 @@
     <%= form_with url: login_path, class: "p-userForm__formWrap", local: true do |form| %>
       <div class="p-userForm__inputWrap">
         <%= form.label :email, "メールアドレス:", class: "p-userForm__label" %>
-        <%= form.text_field :email, class: "p-userForm__input" %>
+        <%= form.text_field :email, value: @email, class: "p-userForm__input" %>
       </div>
 
       <div class="p-userForm__inputWrap">
@@ -15,6 +15,7 @@
       </div>
         
       <%= form.submit "ログインする", class: "c-button -blue p-userForm__btn" %>
+      <%= link_to "新規登録", new_user_path, class: "c-button -green p-userForm__btn" %>
     <% end %>
   </div>
   
