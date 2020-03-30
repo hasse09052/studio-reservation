@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :reservations, except: [:index, :new, :create]
   resources :mylists, only: [:create, :destroy]
 
+  post '/callback' => 'linebot#callback'
+
 end
