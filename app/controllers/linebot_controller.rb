@@ -14,7 +14,7 @@ class LinebotController < ApplicationController
     events.each do |event|
       case event
       when Line::Bot::Event::Message
-        case event.source
+        case event.type
         when Line::Bot::Event::MessageType::Text
           message = {
             type: 'text',
