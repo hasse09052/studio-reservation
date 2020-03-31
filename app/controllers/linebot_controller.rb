@@ -14,11 +14,11 @@ class LinebotController < ApplicationController
     events.each do |event|
       case event
       when Line::Bot::Event::Message
-        case event.type
+        case event.source
         when Line::Bot::Event::MessageType::Text
           message = {
             type: 'text',
-            text: event.message['text']
+            text: "ユーザーID:#{event.source['userId']} \n グループID:#{event.source['groupId']}"
           }
         end
       end
