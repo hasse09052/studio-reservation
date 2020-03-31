@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  require 'line/bot'
+
   # ログイン済みユーザーかどうか確認
   before_action :logged_in_user, only: [:index, :edit, :update, :create, :destroy]
   # ログインユーザの予約かどうか確認
@@ -57,10 +59,19 @@ class ReservationsController < ApplicationController
 
   def destroy
     # メール送信
-    users = User.all
-    users.each do |user|
-      DeleteReservationMailer.send_when_delete_reservation(user, @reservation).deliver_now
-    end
+    # users = User.all
+    # users.each do |user|
+    #   DeleteReservationMailer.send_when_delete_reservation(user, @reservation).deliver_now
+    # end
+    message = {
+      type: 'text',
+      text: 'テスト送信です'
+    }
+    client = Line::Bot::Client.new { |config|
+        config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
+        config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
+    }
+    client.push_message(ENV["LINE_GROUP_ID"], message)
 
     @reservation.destroy
     flash[:success] = "予約を削除しました"
