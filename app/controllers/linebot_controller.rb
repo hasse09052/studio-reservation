@@ -18,7 +18,7 @@ class LinebotController < ApplicationController
         when Line::Bot::Event::MessageType::Text
           message = {
             type: 'text',
-            text: event.source['userId']
+            text: event.message['text']
           }
         end
       end
