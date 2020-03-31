@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
   require 'line/bot'
 
   # ログイン済みユーザーかどうか確認
-  before_action :logged_in_user, only: [:index, :edit, :update, :create, :destroy]
+  before_action :logged_in_user
   # ログインユーザの予約かどうか確認
   before_action :correct_user, only: [:edit, :update, :destroy]
 
@@ -69,13 +69,7 @@ class ReservationsController < ApplicationController
     url = "https://box-reservation-app.herokuapp.com/reservations/new/" + @reservation.start_date.strftime("%Y/%m/%d/%H/%M")
     message = {
       type: 'text',
-      text: "予約が削除されました。\n
-            日付:#{date}\n
-            時間:#{time}\n
-            名前:#{name}\n
-            \n
-            予約される方は、以下URLからお願いします。\n
-            #{url}"
+      text: "予約が削除されました。\n 日付:#{date}\n  時間:#{time}\n  名前:#{name}\n\n予約される方は、以下URLからお願いします。\n#{url}"
     }
     client = Line::Bot::Client.new { |config|
         config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
