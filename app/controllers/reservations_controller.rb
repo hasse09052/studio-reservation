@@ -63,9 +63,19 @@ class ReservationsController < ApplicationController
     # users.each do |user|
     #   DeleteReservationMailer.send_when_delete_reservation(user, @reservation).deliver_now
     # end
+    date = @reservation.start_date.strftime("%Y年%m月%d日(#{%w(日 月 火 水 木 金 土)[@reservation.start_date.wday]})")
+    time = @reservation.start_date.strftime("%H時%M分〜")
+    name = @reservation.name
+    url = "https://box-reservation-app.herokuapp.com/reservations/new/" + @reservation.start_date.strftime("%Y/%m/%d/%H/%M")
     message = {
       type: 'text',
-      text: 'テスト送信です'
+      text: "予約が削除されました。\n
+            日付:#{date}\n
+            時間:#{time}\n
+            名前:#{name}\n
+            \n
+            予約される方は、以下URLからお願いします。\n
+            #{url}"
     }
     client = Line::Bot::Client.new { |config|
         config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
