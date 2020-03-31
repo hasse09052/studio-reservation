@@ -18,6 +18,9 @@ gem "activesupport"
 # 環境変数扱う用(パスワード隠す)
 gem 'dotenv-rails'
 
+# Line Bot用
+gem 'line-bot-api'
+
 # Use Puma as the app server
 gem 'puma', '~> 4.3.2'
 # Use SCSS for stylesheets
