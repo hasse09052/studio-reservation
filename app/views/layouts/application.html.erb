@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="robots" content="noindex,nofollow">
     <%= favicon_link_tag('favicon.ico') %>
-    <title>StudioReservation</title>
+    <title><%= yield(:htmlTitle) %>｜スタジオ管理アプリ</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 

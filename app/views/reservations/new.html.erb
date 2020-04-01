@@ -1,4 +1,5 @@
 <%= javascript_pack_tag 'reservation' %>
+<% content_for(:htmlTitle, "予約画面") %>
 <input type="hidden" value="<%= current_user.name %>" id="currentUserName">
 
 <h1 class="c-pageTitle">予約する</h1>
