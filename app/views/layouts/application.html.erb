@@ -22,12 +22,12 @@
       <figure class="p-header__left">
         <a href="/" class="c-link"><img src="/icon_guitar.svg" alt="ロゴ画像(トップリンク)" class="p-header__logoImg"></a>
       </figure>
-      <button class="c-noneBtn p-hamburgerBtn" id="hamburgerBtn">
+      <div class="p-hamburgerBtn" id="hamburgerBtn" tabindex="0" role="button">
         <div class="p-hamburgerBtn__line1"></div>
         <div class="p-hamburgerBtn__line2"></div>
         <div class="p-hamburgerBtn__line3"></div>
         <div class="p-hamburgerBtn__text" id="hamburgerBtnText">Menu</div>
-      </button>
+      </div>
       <nav class="p-header__right">
         <ul class="p-header__lists" id="headerMenus">
           <% if logged_in? %>

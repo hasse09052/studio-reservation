@@ -21,7 +21,7 @@ if (touch) { // remove all :hover stylesheets
 
 $(function () {
   // ハンバーガーメニュー開閉
-  $("#hamburgerBtn").click(() => {
+  const toggleHamburger = () => {
     const menus = $("#headerMenus");
 
     if (menus.hasClass("-open")) {
@@ -35,6 +35,14 @@ $(function () {
       menus.toggleClass("-open");
       $("#hamburgerBtnText").text("Close");
       menus.stop(1, 1).slideDown();
+    }
+  };
+  $("#hamburgerBtn").click(() => {
+    toggleHamburger();
+  });
+  $("#hamburgerBtn").on("keydown", (e) => {
+    if(e.keyCode == 13) {
+      toggleHamburger();
     }
   });
 
