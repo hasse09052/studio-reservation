@@ -1,0 +1,48 @@
+.pagination {
+  margin: 40px auto 0;
+  font-size: 1.4rem;
+  text-align: center;
+
+  & a {
+    display: inline-block;
+    width: 40px;
+    line-height: 40px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: #261e1c;
+    color: #fff;
+    transition: 0.3s ease-out;
+
+    @include SP {
+      width: 23px;
+      line-height: 23px;
+      margin: 0 3px;
+    }
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .current {
+    display: inline-block;
+    width: 40px;
+    line-height: 40px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: #261e1c;
+    color: #fff;
+    font-style: normal;
+    opacity: 0.4;
+
+    @include SP {
+      width: 23px;
+      line-height: 23px;
+      margin: 0 3px;
+    }
+  }
+
+  .disabled {
+    display: none;
+  }
+}

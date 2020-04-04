@@ -12,3 +12,7 @@ ja:
       reservation:
         name: 予約名
         start_date: 予約時刻
+  will_paginate:
+    previous_label: "前"
+    next_label: "次"
+    page_gap: "…"

@@ -21,6 +21,12 @@ gem 'dotenv-rails'
 # Line Bot用
 gem 'line-bot-api'
 
+# ダミーデータ作成用
+gem 'faker'
+
+# ページネーション用
+gem 'will_paginate'
+
 # Use Puma as the app server
 gem 'puma', '~> 4.3.2'
 # Use SCSS for stylesheets

@@ -1,7 +1,10 @@
-<% @users.each do |user|%>
-  <ul>
-    <li><%= user.name %></li>
-    <li><%= user.email %></li>
-    <li><%= user.id %></li>
-  </ul>
-<% end %>
+<% content_for(:htmlTitle, "会員一覧(#{params[:page] || 1}ページ)") %>
+<h1 class="c-pageTitle">会員一覧 <%= "(#{params[:page] || 1}ページ)" %></h1>
+
+<ul class="p-userList l-normal">
+  <% @users.each do |user|%>
+    <li class="p-userList__item"><%= link_to user.name, user, class: "p-userList__link" %></li>
+  <% end %>
+</ul>
+
+<%= will_paginate @users, inner_window: 1 %>
