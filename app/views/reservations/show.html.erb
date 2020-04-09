@@ -23,6 +23,18 @@
         <th class="p-reservationForm__header">予約者</th>
         <td class="p-reservationForm__data -nonePadding"><%= link_to @user.name, user_path(@user.id), class: "p-reservationForm__link" %></td>
       </tr>
+      <% unless @mylistUsers.empty? %>
+      <tr class="p-reservationForm__row">
+        <th class="p-reservationForm__header">マイリスト</th>
+        <td class="p-reservationForm__data -nonePadding">
+          <ul class="c-noneUl">
+            <% @mylistUsers.each do |mylistUser|  %>
+            <li><%= link_to mylistUser.name, mylistUser, class: "p-reservationForm__link"%></li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+      <% end %>
     </tbody>
   </table>
 

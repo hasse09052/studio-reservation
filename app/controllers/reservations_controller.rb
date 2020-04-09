@@ -22,6 +22,7 @@ class ReservationsController < ApplicationController
   def show
     @reservation = Reservation.find(params[:id])
     @user = @reservation.user
+    @mylistUsers = @reservation.mylist_users.all
   end
 
   def new

@@ -246,3 +246,10 @@
   background: none;
   text-align: start;
 }
+
+// ulのデザインを削除
+.c-noneUl {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
