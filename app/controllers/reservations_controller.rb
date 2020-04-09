@@ -35,11 +35,10 @@ class ReservationsController < ApplicationController
     @reservation_time = Time.zone.local(params[:year], params[:month],
                                         params[:day], params[:hour], params[:minute], 00)
     @reservation =  @user.reservations.new(name: params[:name], start_date: @reservation_time)
-    diffWeek = todayDiffWeek(@reservation_time) + 1
 
     if @reservation.save
       flash[:success] = "予約に成功しました！"
-      redirect_to "/reservations/table/#{diffWeek}"
+      redirect_to reservationTablePath(@reservation)
     else
       render "reservations/new"
     end
@@ -50,11 +49,9 @@ class ReservationsController < ApplicationController
   end
 
   def update
-    diffWeek = todayDiffWeek(@reservation.start_date) + 1
-
     if @reservation.update(name: params[:reservation][:name])
       flash[:success] = "予約の更新に成功しました"
-      redirect_to "/reservations/table/#{diffWeek}"
+      redirect_to reservationTablePath(@reservation)
     else
       render 'edit'
     end
@@ -76,11 +73,9 @@ class ReservationsController < ApplicationController
     }
     client.push_message(ENV["LINE_GROUP_ID"], message)
 
-    diffWeek = todayDiffWeek(@reservation.start_date) + 1
-
     @reservation.destroy
     flash[:success] = "予約を削除しました"
-    redirect_to "/reservations/table/#{diffWeek}"
+    redirect_to reservationTablePath(@reservation)
   end
 
   private
