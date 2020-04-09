@@ -14,9 +14,9 @@
     transition: 0.3s ease-out;
 
     @include SP {
-      width: 23px;
-      line-height: 23px;
-      margin: 0 3px;
+      width: 30px;
+      line-height: 30px;
+      margin: 0 7px;
     }
 
     &:hover {
@@ -36,9 +36,9 @@
     opacity: 0.4;
 
     @include SP {
-      width: 23px;
-      line-height: 23px;
-      margin: 0 3px;
+      width: 30px;
+      line-height: 30px;
+      margin: 0 7px;
     }
   }
 
