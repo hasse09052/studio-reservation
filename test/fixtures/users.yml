@@ -1,9 +1,9 @@
-tarou:
+one:
   name: テスト太郎
   email: test1234@test.com
   password_digest: <%= User.digest('password') %>
 
-hanako:
+two:
   name: テスト花子
   email: test2222@test.jp
   password_digest: <%= User.digest('password') %>

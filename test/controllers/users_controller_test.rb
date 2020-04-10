@@ -3,8 +3,8 @@ require 'test_helper'
 class UsersControllerTest < ActionDispatch::IntegrationTest
 
   def setup
-    @user = users(:tarou)
-    @other_user = users(:hanako)
+    @user = users(:one)
+    @other_user = users(:two)
   end
 
   test "ユーザ作成画面にアクセスできるか" do

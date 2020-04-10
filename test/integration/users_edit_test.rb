@@ -3,7 +3,7 @@ require 'test_helper'
 class UsersEditTest < ActionDispatch::IntegrationTest
 
   def setup
-    @user = users(:tarou)
+    @user = users(:one)
   end
 
   test "編集に失敗した際に再レンダリング" do

@@ -3,7 +3,7 @@ require 'test_helper'
 class ReservationTest < ActiveSupport::TestCase
   def setup
     test_time = Time.local(2020, 2, 15 , 9, 00, 00)
-    @user = users(:tarou)
+    @user = users(:one)
     @reservation = @user.reservations.build(name: "xxxBand", start_date: test_time)
   end
 

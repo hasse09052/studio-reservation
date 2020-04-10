@@ -22,7 +22,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password_confirmation: "password" } }
     end
     follow_redirect!
-    assert_template 'users/index'
+    assert_template 'reservations/index'
     assert is_logged_in?
   end
 end
