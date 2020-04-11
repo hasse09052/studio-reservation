@@ -2,9 +2,8 @@ require 'test_helper'
 
 class ReservationTest < ActiveSupport::TestCase
   def setup
-    test_time = Time.local(2020, 2, 15 , 9, 00, 00)
     @user = users(:one)
-    @reservation = @user.reservations.build(name: "xxxBand", start_date: test_time)
+    @reservation = @user.reservations.build(name: "テストバンド", start_date: Time.current)
   end
 
   test "有効性の確認" do
