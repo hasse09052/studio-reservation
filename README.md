@@ -1,24 +1,16 @@
-# README
+# アプリについて
+これはスタジオ管理アプリのリポジトリです。<br>
+私の所属するバンドサークル向けに作成しました。<br>
+使用した言語・技術は、HTML, CSS, JS(jQuery), Ruby,  Ruby on Rails, LINE Messaging API, Heroku になります。<br>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 開発背景
+私の所属するバンドサークルでは、部室の利用を1時間30分毎の枠に区切っています。<br>
+そして、その枠をバンドや個人が予約を入れて利用します。<br>
+しかし、予約は部室内に置いてあるホワイトボードで運用しており、様々な問題や不便な点がありました。<br>
+オンラインでの予約確認と予約、自分の予定確認、他の人の予定の閲覧など、これらが出来ればより便利に、そしてサークルが活発になると思い開発に着手しました。<br>
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# セールスポイント
+開発時に、ユーザビリティと、予約が削除された時の通知を特に意識して開発しました。<br>
+UI/UX、インクルーシブデザインに拘り、実際にユーザー（部員）の声を聞いて採用することで、使い心地の良いアプリに仕上げております。<br>
+レスポンシブにも対応しており、PC・スマートフォン問わず利用できます。<br>
+また、予約削除で枠が空いたらLINEグループに通知することで、無駄なく部室の利用が行われるようにしています。<br>
