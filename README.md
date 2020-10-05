@@ -2,9 +2,6 @@
 これはスタジオ管理アプリのリポジトリです。<br>
 私の所属するバンドサークル向けに作成しました。<br>
 使用した言語・技術は、HTML, CSS, JS(jQuery), Ruby,  Ruby on Rails, LINE Messaging API, Heroku になります。<br>
-<br>
-URL:https://box-reservation-app.herokuapp.com<br>
-※上記URLは公開用のものです。実際に運用しているものではなく、入ってるデータはダミーデータです。<br>
 
 # 開発背景
 私の所属するバンドサークルでは、部室の利用を1時間30分毎の枠に区切っています。<br>

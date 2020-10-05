@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
     end
     afterWeek = params[:week].to_i - 1
     startDate = Time.current.weeks_since(afterWeek)
-    @startDate = Time.zone.local(startDate.year, startDate.month, startDate.day, 9, 00, 00)
+    @startDate = Time.zone.local(startDate.year, startDate.month, startDate.day, 8, 30, 00)
     @reservations = Reservation.all
     @mylistReservations = current_user.mylist_reservations.all.order(:start_date)
   end
